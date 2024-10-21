@@ -47,14 +47,14 @@ const HeroSection = () => {
             className="bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
             onClick={() => window.location.href = '/contact'}
           >
-            קבע תור עכשיו
+           📞 053-824-7434
           </button>
-            <button
-            className="bg-transparent border-2 border-white hover:bg-white hover:text-purple-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+          <button
+            className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-75 hover:text-purple-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             onClick={() => window.location.href = '/gallery'}
-            >
+          >
             גלריית עבודות
-            </button>
+          </button>
         </div>
       </div>
       

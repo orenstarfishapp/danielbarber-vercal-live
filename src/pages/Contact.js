@@ -2,11 +2,11 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="container mx-auto  px-4 md:px-[50px] py-8">
+    <div className="container mx-auto px-4 md:px-[50px] py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">צור קשר</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white rounded-lg shadow-md p-8">
+      <div className="flex justify-center">
+        <div className="bg-white rounded-lg shadow-md p-8 max-w-screen-md w-full">
           <h2 className="text-2xl font-semibold mb-4">פרטי התקשרות</h2>
           <ul className="space-y-4">
             <li className="flex items-center">
@@ -36,65 +36,6 @@ const Contact = () => {
             <li>שישי: 09:00 - 15:00</li>
             <li>שבת: סגור</li>
           </ul>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-semibold mb-4">השאר הודעה</h2>
-          <form id="contact-form" className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block mb-1">
-                שם מלא:
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full px-3 py-2 border rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-1">
-                אימייל:
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full px-3 py-2 border rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block mb-1">
-                טלפון:
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                className="w-full px-3 py-2 border rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block mb-1">
-                הודעה:
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                className="w-full px-3 py-2 border rounded-md"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600"
-            >
-              שלח הודעה
-            </button>
-          </form>
         </div>
       </div>
 

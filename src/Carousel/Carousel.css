@@ -1,0 +1,6 @@
+/* Carousel.css */
+@media (max-width: 640px) {
+  .swiper-pagination {
+    display: none;
+  }
+}

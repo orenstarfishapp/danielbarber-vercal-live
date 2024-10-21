@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import image1 from "../img/haircutImages/2021-11-22_2712658976930319807.jpg";
 import image2 from "../img/haircutImages/2021-11-22_2712658976947126088.jpg";
@@ -47,100 +46,140 @@ import image42 from "../img/haircutImages/mainImage/2021-11-23_27134745566337417
 import image43 from "../img/haircutImages/mainImage/2021-11-23_2713474556784774385.jpg";
 import image44 from "../img/haircutImages/mainImage/2021-12-22_2734380927860286891.jpg";
 
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "./Carousel.css"; // Import custom CSS file
 
 export const Carousel = () => {
-const images = [
-  image40,
-  image41,
-  image42,
-  image43,
-  image44,
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-  image10,
-  image11,
-  image12,
-  image13,
-  image14,
-  image15,
-  image16,
-  image17,
-  image18,
-  image19,
-  image20,
-  image21,
-  image22,
-  image23,
-  image24,
-  image25,
-  image26,
-  image27,
-  image28,
-  image29,
-  image30,
-  image31,
-  image32,
-  image33,
-  image34,
-  image35,
-  image36,
-  image37,
-  image38,
-  image39,
-];
-    return (
-      <>
-        <Swiper
-          // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={50}
-          slidesPerView={5}
-          navigation
-          autoplay
-          pagination={{ clickable: true }}
-          // scrollbar={{ draggable: true }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2, // 2 slides for small/medium screens (md)
-            },
-            1024: {
-              slidesPerView: 5, // 5 slides for large screens (lg)
-            },
-          }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const images = [
+    image40,
+    image41,
+    image42,
+    image43,
+    image44,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
+    image16,
+    image17,
+    image18,
+    image19,
+    image20,
+    image21,
+    image22,
+    image23,
+    image24,
+    image25,
+    image26,
+    image27,
+    image28,
+    image29,
+    image30,
+    image31,
+    image32,
+    image33,
+    image34,
+    image35,
+    image36,
+    image37,
+    image38,
+    image39,
+  ];
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsZoomed(false);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsZoomed(false);
+  };
+
+  const toggleZoom = () => {
+    setIsZoomed(!isZoomed);
+  };
+
+  return (
+    <>
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        spaceBetween={50}
+        slidesPerView={5}
+        navigation
+        autoplay
+        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        // scrollbar={{ draggable: true }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2, // 2 slides for small/medium screens (md)
+          },
+          1024: {
+            slidesPerView: 5, // 5 slides for large screens (lg)
+          },
+        }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {images.map((src, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative overflow-hidden rounded-lg shadow-md" onClick={() => openModal(src)}>
+                <img
+                  src={src}
+                  alt={`תמונה ${index + 1}`}
+                  className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </div>
+        <div className="swiper-pagination"></div>
+      </Swiper>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+          onClick={closeModal}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {images.map((src, index) => (
-              <SwiperSlide>
-                <div
-                  key={index}
-                  className="relative overflow-hidden rounded-lg shadow-md"
-                >
-                  <img
-                    src={src}
-                    // src={"haircutImages/2021-11-22_2712658976930319807.jpg"}
-                    alt={`תמונה ${index + 1}`}
-                    className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
+          <div className="relative max-w-screen-sm w-full mx-4 mt-16">
+            <button
+              className="absolute top-0 right-0 mt-2 mr-2 text-white text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className={`w-full h-auto rounded-lg transition-transform duration-300 ${isZoomed ? 'scale-150' : 'scale-100'}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleZoom();
+              }}
+            />
           </div>
-        </Swiper>
-      </>
-    );
-}
+        </div>
+      )}
+    </>
+  );
+};

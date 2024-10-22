@@ -5,7 +5,7 @@ const servicesData = [
     icon: "fas fa-cut",
     title: "תספורת גברים",
     description: "תספורת מקצועית המותאמת אישית לסגנון ולמבנה הפנים שלך.",
-    price: "מחיר: ₪70",
+    price: "מחיר: ₪80",
   },
   {
     icon: "fas fa-beard",

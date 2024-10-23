@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import { Navigation, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import image1 from "../img/haircutImages/2021-11-22_2712658976930319807.jpg";
 import image2 from "../img/haircutImages/2021-11-22_2712658976947126088.jpg";
@@ -49,7 +49,6 @@ import image44 from "../img/haircutImages/mainImage/2021-12-22_27343809278602868
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./Carousel.css"; // Import custom CSS file
 
@@ -121,14 +120,11 @@ export const Carousel = () => {
   return (
     <>
       <Swiper
-        // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Navigation, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={5}
         navigation
         autoplay
-        pagination={{ clickable: true, el: '.swiper-pagination' }}
-        // scrollbar={{ draggable: true }}
         breakpoints={{
           640: {
             slidesPerView: 2, // 2 slides for small/medium screens (md)
@@ -146,14 +142,13 @@ export const Carousel = () => {
               <div className="relative overflow-hidden rounded-lg shadow-md" onClick={() => openModal(src)}>
                 <img
                   src={src}
-                  alt={`תמונה ${index + 1}`}
+                  alt={`Image ${index + 1}`}
                   className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110"
                 />
               </div>
             </SwiperSlide>
           ))}
         </div>
-        <div className="swiper-pagination"></div>
       </Swiper>
 
       {selectedImage && (
@@ -183,3 +178,5 @@ export const Carousel = () => {
     </>
   );
 };
+
+export default Carousel;

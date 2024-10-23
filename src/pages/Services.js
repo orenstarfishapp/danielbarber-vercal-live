@@ -41,7 +41,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <div className="py-6  px-4 md:px-[150px]">
+    <div className="w-full min-h-screen mx-auto px-4 md:px-8 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">השירותים שלנו</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

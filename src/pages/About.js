@@ -2,12 +2,12 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="container mx-auto  px-4 md:px-[50px] py-8">
+    <div className="w-full min-h-screen mx-auto px-4 md:px-8 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">
         אודות דניאל אדרי עיצוב שיער
       </h1>
 
-      <div className="bg-white rounded-lg shadow-md p-8">
+      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 className="text-2xl font-semibold mb-4">הסיפור שלנו</h2>
         <p className="mb-4">
           דניאל אדרי עיצוב שיער הוקם מתוך אהבה לאמנות עיצוב השיער והרצון להעניק
@@ -24,7 +24,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="mt-8 bg-white rounded-lg shadow-md p-8">
+      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 className="text-2xl font-semibold mb-4">המשימה שלנו</h2>
         <p className="mb-4">
           המשימה שלנו היא להעניק לכל לקוח חוויה אישית ומותאמת, תוך שימוש
@@ -37,7 +37,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="mt-8 bg-white rounded-lg shadow-md p-8">
+      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 className="text-2xl font-semibold mb-4">היתרונות שלנו</h2>
         <ul className="list-disc list-inside space-y-2">
           <li>טיפול ושירות מכל הלב</li>
@@ -47,7 +47,7 @@ const About = () => {
         </ul>
       </div>
 
-      <div className="mt-8 bg-white rounded-lg shadow-md p-8">
+      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 className="text-2xl font-semibold mb-4">הצוות שלנו</h2>
         <p className="mb-4">
           הצוות שלנו מורכב מספרים מקצועיים ומנוסים, בהובלתו של דניאל אדרי. כל
@@ -56,7 +56,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="mt-12 text-center">
+      <div className="text-center">
         <a
           href="/contact"
           className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 inline-block"

@@ -52,15 +52,7 @@ const Header = ({ logo }) => {
             <Link to="/contact" className="hover:text-gray-300">
               צור קשר
             </Link>
-            <a
-              href="https://www.instagram.com/daniel.edri.barber/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300"
-            >
-              <i className="fab fa-instagram"></i>
-            </a>
-          </div>
+            </div>
         </div>
       </nav>
 
@@ -81,14 +73,6 @@ const Header = ({ logo }) => {
         <Link to="/contact" className="block py-2 px-4 text-sm hover:bg-gray-700">
           צור קשר
         </Link>
-        <a
-          href="https://www.instagram.com/daniel.edri.barber/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block py-2 px-4 text-sm hover:bg-gray-700"
-        >
-          <i className="fab fa-instagram"></i> אינסטגרם
-        </a>
       </div>
     </header>
   );

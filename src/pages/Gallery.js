@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { ChevronLeft, X } from "lucide-react";
 import image1 from '../img/haircutImages/2021-11-22_2712658976930319807.jpg'
 import image2 from '../img/haircutImages/2021-11-22_2712658976947126088.jpg'
 import image3 from '../img/haircutImages/2021-11-22_2712658976955596741.jpg'
@@ -45,6 +46,8 @@ import image43 from "../img/haircutImages/mainImage/2021-11-23_27134745567847743
 import image44 from "../img/haircutImages/mainImage/2021-12-22_2734380927860286891.jpg";
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const images = [
     image40,
     image41,
@@ -103,20 +106,34 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="container mx-auto  px-4 md:px-[50px] py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">גלריה</h1>
+    <div className="w-full min-h-screen mx-auto px-4 md:px-8 py-12 max-w-7xl bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="mb-16 text-center">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
+          גלריה
+        </h1>
+        <p className="text-xl text-gray-600 font-medium px-6 py-3 rounded-full bg-white shadow-md inline-block">
+          הצצה לעבודות שלנו
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((src, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg shadow-md"
+            className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 aspect-square cursor-pointer"
+            onClick={() => setSelectedImage(src)}
           >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
             <img
               src={src}
               alt={`תמונה ${index + 1}`}
-              className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110"
+              className="w-full h-full object-cover transition duration-500 ease-out transform group-hover:scale-110"
             />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <h2 className="text-xl font-semibold text-white">
+                תמונה {index + 1}
+              </h2>
+            </div>
           </div>
         ))}
       </div>
